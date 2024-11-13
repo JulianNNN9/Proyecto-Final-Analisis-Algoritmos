@@ -1,0 +1,73 @@
+{
+  "casos": [
+    {
+      "muestras": [
+        0,
+        0
+      ],
+      "promedio": 0,
+      "tam": 8,
+      "tamanioBloques": 4
+    },
+    {
+      "muestras": [
+        0,
+        0
+      ],
+      "promedio": 0,
+      "tam": 16,
+      "tamanioBloques": 8
+    },
+    {
+      "muestras": [
+        0,
+        0
+      ],
+      "promedio": 0,
+      "tam": 32,
+      "tamanioBloques": 16
+    },
+    {
+      "muestras": [
+        0.000545
+      ],
+      "promedio": 0.000545,
+      "tam": 64,
+      "tamanioBloques": 32
+    },
+    {
+      "muestras": [
+        0.0052193
+      ],
+      "promedio": 0.0052193,
+      "tam": 128,
+      "tamanioBloques": 64
+    },
+    {
+      "muestras": [
+        0.0438535
+      ],
+      "promedio": 0.0438535,
+      "tam": 256,
+      "tamanioBloques": 64
+    },
+    {
+      "muestras": [
+        0.5198073
+      ],
+      "promedio": 0.5198073,
+      "tam": 512,
+      "tamanioBloques": 128
+    },
+    {
+      "muestras": [
+        4.1267799
+      ],
+      "promedio": 4.1267799,
+      "tam": 1024,
+      "tamanioBloques": 128
+    }
+  ],
+  "lenguaje": "go",
+  "nombre": "III3SequentialBlock"
+}
