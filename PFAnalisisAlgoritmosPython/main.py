@@ -334,13 +334,12 @@ def ejecutar_III4ParallelBlock():
 def ejecutar_III3SequentialBlock():
     casosPrueba = ({"num": 1, "tam": 8, "numMuestras": 2, "tamanioBloques":4},
                 {"num": 2,  "tam": 16, "numMuestras": 2, "tamanioBloques":8},
-                #{"num": 3,  "tam": 32, "numMuestras": 2, "tamanioBloques":16},
-                #{"num": 4,  "tam": 64, "numMuestras": 1, "tamanioBloques":32},
-                #{"num": 5,  "tam": 128, "numMuestras": 1, "tamanioBloques":64},
-                #{"num": 6,  "tam": 256, "numMuestras": 1, "tamanioBloques":64},
-                #{"num": 7,  "tam": 512, "numMuestras": 1, "tamanioBloques":128},
-                #{"num": 8,  "tam": 1024, "numMuestras": 1,  "tamanioBloques":128}
-                )
+                {"num": 3,  "tam": 32, "numMuestras": 2, "tamanioBloques":16},
+                {"num": 4,  "tam": 64, "numMuestras": 1, "tamanioBloques":32},
+                {"num": 5,  "tam": 128, "numMuestras": 1, "tamanioBloques":64},
+                {"num": 6,  "tam": 256, "numMuestras": 1, "tamanioBloques":64},
+                {"num": 7,  "tam": 512, "numMuestras": 1, "tamanioBloques":128},
+                {"num": 8,  "tam": 1024, "numMuestras": 1,  "tamanioBloques":128})
     resultado = Resultado.ResultadoMet("III3SequentialBlock", [], "python")
 
     for caso in casosPrueba:
@@ -369,12 +368,12 @@ def ejecutar_III3SequentialBlock():
 
 if __name__ == "__main__":
     ejecutar_III3SequentialBlock()
-    #ejecutar_III4ParallelBlock()
-    #ejecutar_IV3SequentialBlock()
-    #ejecutar_NaivLoopUnrollingFour()
-    #ejecutar_NaivLoopUnrollingTwo()
-    #ejecutar_NaivOnArray()
-    #ejecutar_StrassenNaiv()
-    #ejecutar_StrassenWinograd()
-    #ejecutar_V3SequentialBlock()
-    #ejecutar_WinogradOriginal()
+    ejecutar_III4ParallelBlock()
+    ejecutar_IV3SequentialBlock()
+    ejecutar_NaivLoopUnrollingFour()
+    ejecutar_NaivLoopUnrollingTwo()
+    ejecutar_NaivOnArray()
+    ejecutar_StrassenNaiv()
+    ejecutar_StrassenWinograd()
+    ejecutar_V3SequentialBlock()
+    ejecutar_WinogradOriginal()

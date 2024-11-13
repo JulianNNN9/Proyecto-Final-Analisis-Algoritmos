@@ -8,8 +8,8 @@ def obtener_promedio_primero(archivo):
         return data["casos"][7]["promedio"]
 
 # Rutas de los archivos JSON para Go y Python
-ruta_go = "..\\Documentos\\Resultados\\go\\"
-ruta_python = "..\\Documentos\\Resultados\\python\\"
+ruta_go = "Documentos\\Resultados\\go\\"
+ruta_python = "Documentos\\Resultados\\python\\"
 
 # Nombres de los algoritmos
 nombres_algoritmos = ["NaivOnArray", "NaivLoopUnrollingTwo", "NaivLoopUnrollingFour", "WinogradOriginal", "StrassenNaiv",
