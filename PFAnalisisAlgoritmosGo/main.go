@@ -44,6 +44,7 @@ func LeerMatriz(ruta string, tam int) [][]int {
 	return matriz
 }
 
+
 func ejecutar_WinogradOriginal() {
 	// Casos de prueba
 	casosPrueba := []map[string]interface{}{
