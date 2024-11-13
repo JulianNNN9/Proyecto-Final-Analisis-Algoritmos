@@ -44,7 +44,6 @@ func LeerMatriz(ruta string, tam int) [][]int {
 	return matriz
 }
 
-
 func ejecutar_WinogradOriginal() {
 	// Casos de prueba
 	casosPrueba := []map[string]interface{}{
@@ -75,8 +74,8 @@ func ejecutar_WinogradOriginal() {
 		}
 
 		// Leer matrices desde los archivos correspondientes
-		matrizA := LeerMatriz(fmt.Sprintf("G:/Visual Studio Code - workspace/Proyect_Final_Analisis/Documentos/Casos de prueba/caso%d/matrizA.txt", caso["num"].(int)), objeto.Tam)
-		matrizB := LeerMatriz(fmt.Sprintf("G:/Visual Studio Code - workspace/Proyect_Final_Analisis/Documentos/Casos de prueba/caso%d/matrizB.txt", caso["num"].(int)), objeto.Tam)
+		matrizA := LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), objeto.Tam)
+		matrizB := LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), objeto.Tam)
 
 		// Convertir las matrices de [][]int a [][]float64
 		matrizAFloat := convertirAMatrizFloat64(matrizA)
@@ -118,7 +117,7 @@ func ejecutar_WinogradOriginal() {
 	}
 
 	// Guardar en archivo
-	err = os.WriteFile("G:/Visual Studio Code - workspace/Proyect_Final_Analisis/Documentos/Resultados/go/WinogradOriginalResultadoGo.json", resultadoJSON, 0644)
+	err = os.WriteFile("..\\Documentos\\Resultados\\go\\WinogradOriginalResultadoGo.json", resultadoJSON, 0644)
 	if err != nil {
 		fmt.Println("Error al escribir el archivo:", err)
 	}
@@ -167,8 +166,8 @@ func ejecutar_V3SequentialBlock() {
 		}
 
 		// Leer matrices desde los archivos correspondientes
-		matrizA := LeerMatriz(fmt.Sprintf("G:/Visual Studio Code - workspace/Proyect_Final_Analisis/Documentos/Casos de prueba/caso%d/matrizA.txt", caso["num"].(int)), objeto.Tam)
-		matrizB := LeerMatriz(fmt.Sprintf("G:/Visual Studio Code - workspace/Proyect_Final_Analisis/Documentos/Casos de prueba/caso%d/matrizB.txt", caso["num"].(int)), objeto.Tam)
+		matrizA := LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), objeto.Tam)
+		matrizB := LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), objeto.Tam)
 
 		// Convertir las matrices de [][]int a [][]float64
 		matrizAFloat := convertirAMatrizFloat64(matrizA)
@@ -209,7 +208,7 @@ func ejecutar_V3SequentialBlock() {
 	}
 
 	// Guardar en archivo
-	err = os.WriteFile("G:/Visual Studio Code - workspace/Proyect_Final_Analisis/Documentos/Resultados/go/V3SequentialBlockResultadoGo.json", resultadoJSON, 0644)
+	err = os.WriteFile("..\\Documentos\\Resultados\\go\\V3SequentialBlockResultadoGo.json", resultadoJSON, 0644)
 	if err != nil {
 		fmt.Println("Error al escribir el archivo:", err)
 	}
@@ -245,8 +244,8 @@ func ejecutar_StrassenWinograd() {
 		}
 
 		// Leer matrices desde los archivos correspondientes
-		matrizA := LeerMatriz(fmt.Sprintf("G:/Visual Studio Code - workspace/Proyect_Final_Analisis/Documentos/Casos de prueba/caso%d/matrizA.txt", caso["num"].(int)), objeto.Tam)
-		matrizB := LeerMatriz(fmt.Sprintf("G:/Visual Studio Code - workspace/Proyect_Final_Analisis/Documentos/Casos de prueba/caso%d/matrizB.txt", caso["num"].(int)), objeto.Tam)
+		matrizA := LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), objeto.Tam)
+		matrizB := LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), objeto.Tam)
 
 		// Convertir las matrices de [][]int a [][]float64
 		matrizAFloat := convertirAMatrizFloat64(matrizA)
@@ -290,12 +289,11 @@ func ejecutar_StrassenWinograd() {
 	}
 
 	// Guardar en archivo
-	err = os.WriteFile("G:/Visual Studio Code - workspace/Proyect_Final_Analisis/Documentos/Resultados/go/StrassenWinogradResultadoGo.json", resultadoJSON, 0644)
+	err = os.WriteFile("..\\Documentos\\Resultados\\go\\StrassenWinogradResultadoGo.json", resultadoJSON, 0644)
 	if err != nil {
 		fmt.Println("Error al escribir el archivo:", err)
 	}
 }
-
 
 func ejecutar_StrassenNaiv() {
 	// Definimos los casos de prueba
@@ -377,7 +375,7 @@ func ejecutar_StrassenNaiv() {
 	}
 
 	// Guardamos los resultados en un archivo JSON
-	file, err := os.Create("Documentos/Resultados/go/StrassenNaivResultadoGo.json")
+	file, err := os.Create("..\\Documentos\\Resultados\\go\\StrassenNaivResultadoGo.json")
 	if err != nil {
 		fmt.Println("Error al crear el archivo:", err)
 		return
@@ -473,7 +471,7 @@ func ejecutar_NaivOnArray() {
 	}
 
 	// Guardamos los resultados en un archivo JSON
-	file, err := os.Create("Documentos/Resultados/go/NaivOnArrayResultadoGo.json")
+	file, err := os.Create("..\\Documentos\\Resultados\\go\\NaivOnArrayResultadoGo.json")
 	if err != nil {
 		fmt.Println("Error al crear el archivo:", err)
 		return
@@ -576,7 +574,7 @@ func ejecutar_NaivLoopUnrollingTwo() {
 	}
 
 	// Guardar en archivo
-	err = ioutil.WriteFile("Documentos\\Resultados\\go\\NaivLoopUnrollingTwoResultadoGo.json", resultadoJSON, 0644)
+	err = ioutil.WriteFile("..\\Documentos\\Resultados\\go\\NaivLoopUnrollingTwoResultadoGo.json", resultadoJSON, 0644)
 	if err != nil {
 		fmt.Println("Error al escribir el archivo:", err)
 	}
@@ -704,8 +702,8 @@ func ejecutar_IV3SequentialBlock() {
 		}
 
 		// Leer matrices desde los archivos correspondientes
-		matrizA := LeerMatriz(fmt.Sprintf("G:/Visual Studio Code - workspace/Proyect_Final_Analisis/Documentos/Casos de prueba/caso%d/matrizA.txt", caso["num"].(int)), objeto.Tam)
-		matrizB := LeerMatriz(fmt.Sprintf("G:/Visual Studio Code - workspace/Proyect_Final_Analisis/Documentos/Casos de prueba/caso%d/matrizB.txt", caso["num"].(int)), objeto.Tam)
+		matrizA := LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), objeto.Tam)
+		matrizB := LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), objeto.Tam)
 
 		// Realizar el cálculo y medir el tiempo
 		for i := 0; i < caso["numMuestras"].(int); i++ {
@@ -740,7 +738,7 @@ func ejecutar_IV3SequentialBlock() {
 	}
 
 	// Guardar en archivo
-	err = os.WriteFile("G:/Visual Studio Code - workspace/Proyect_Final_Analisis/Documentos/Resultados/go/IV3SequentialBlockResultadoGo.json", resultadoJSON, 0644)
+	err = os.WriteFile("..\\Documentos\\Resultados\\go\\IV3SequentialBlockResultadoGo.json", resultadoJSON, 0644)
 	if err != nil {
 		fmt.Println("Error al escribir el archivo:", err)
 	}
@@ -788,8 +786,8 @@ func ejecutar_III4ParallelBlock() {
 		}
 
 		// Leer matrices desde los archivos correspondientes
-		matrizA = LeerMatriz(fmt.Sprintf("G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), N)
-		matrizB = LeerMatriz(fmt.Sprintf("G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), N)
+		matrizA = LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), N)
+		matrizB = LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), N)
 
 		// Realizar el cálculo y medir el tiempo
 		for i := 0; i < caso["numMuestras"].(int); i++ {
@@ -817,7 +815,7 @@ func ejecutar_III4ParallelBlock() {
 	}
 
 	// Guardar en archivo
-	err = os.WriteFile("G:/Visual Studio Code - workspace/Proyect_Final_Analisis/Documentos/Resultados/go/III4ParallelBlockResultadoGo.json", resultadoJSON, 0644)
+	err = os.WriteFile("..\\Documentos\\Resultados\\go\\III4ParallelBlockResultadoGo.json", resultadoJSON, 0644)
 	if err != nil {
 		fmt.Println("Error al escribir el archivo:", err)
 	}
@@ -828,12 +826,12 @@ func ejecutar_III3SequentialBlock() {
 	casosPrueba := []map[string]interface{}{
 		{"num": 1, "tam": 8, "numMuestras": 2, "tamanioBloques": 4},
 		{"num": 2, "tam": 16, "numMuestras": 2, "tamanioBloques": 8},
-		{"num": 3, "tam": 32, "numMuestras": 2, "tamanioBloques": 16},
-		{"num": 4, "tam": 64, "numMuestras": 1, "tamanioBloques": 32},
-		{"num": 5, "tam": 128, "numMuestras": 1, "tamanioBloques": 64},
-		{"num": 6, "tam": 256, "numMuestras": 1, "tamanioBloques": 64},
-		{"num": 7, "tam": 512, "numMuestras": 1, "tamanioBloques": 128},
-		{"num": 8, "tam": 1024, "numMuestras": 1, "tamanioBloques": 128},
+		//{"num": 3, "tam": 32, "numMuestras": 2, "tamanioBloques": 16},
+		//{"num": 4, "tam": 64, "numMuestras": 1, "tamanioBloques": 32},
+		//{"num": 5, "tam": 128, "numMuestras": 1, "tamanioBloques": 64},
+		//{"num": 6, "tam": 256, "numMuestras": 1, "tamanioBloques": 64},
+		//{"num": 7, "tam": 512, "numMuestras": 1, "tamanioBloques": 128},
+		//{"num": 8, "tam": 1024, "numMuestras": 1, "tamanioBloques": 128},
 	}
 
 	// Resultado
@@ -867,8 +865,8 @@ func ejecutar_III3SequentialBlock() {
 		}
 
 		// Leer matrices desde los archivos correspondientes
-		matrizA = LeerMatriz(fmt.Sprintf("G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), N)
-		matrizB = LeerMatriz(fmt.Sprintf("G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), N)
+		matrizA = LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), N)
+		matrizB = LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), N)
 
 		// Realizar el cálculo y medir el tiempo
 		for i := 0; i < caso["numMuestras"].(int); i++ {
@@ -896,7 +894,7 @@ func ejecutar_III3SequentialBlock() {
 	}
 
 	// Guardar en archivo
-	err = os.WriteFile("G:/Visual Studio Code - workspace/Proyect_Final_Analisis/Documentos/Resultados/go/III3SequentialBlockResultadoGo.json", resultadoJSON, 0644)
+	err = os.WriteFile("..\\Documentos\\Resultados\\go\\III3SequentialBlockResultadoGo.json", resultadoJSON, 0644)
 	if err != nil {
 		fmt.Println("Error al escribir el archivo:", err)
 	}

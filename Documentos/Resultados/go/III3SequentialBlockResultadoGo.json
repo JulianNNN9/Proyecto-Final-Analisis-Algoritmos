@@ -1,1 +1,24 @@
-{"nombre": "III3SequentialBlock", "casos": [{"tam": 8, "muestras": [0.001463174819946289, 0.0022373199462890625], "promedio": 0.0018502473831176758, "tamanioBloques": 4}, {"tam": 16, "muestras": [0.019014596939086914, 0.013580799102783203], "promedio": 0.01629769802093506, "tamanioBloques": 8}, {"tam": 32, "muestras": [0.1212453842163086, 0.1148984432220459], "promedio": 0.11807191371917725, "tamanioBloques": 16}, {"tam": 64, "muestras": [0.9020845890045166], "promedio": 0.9020845890045166, "tamanioBloques": 32}, {"tam": 128, "muestras": [7.767553329467773], "promedio": 7.767553329467773, "tamanioBloques": 64}, {"tam": 256, "muestras": [67.25616431236267], "promedio": 67.25616431236267, "tamanioBloques": 64}, {"tam": 512, "muestras": [488.77414321899414], "promedio": 488.77414321899414, "tamanioBloques": 128}, {"tam": 1024, "muestras": [3730.3924248218536], "promedio": 3730.3924248218536, "tamanioBloques": 128}], "lenguaje": "python"}
+{
+  "casos": [
+    {
+      "muestras": [
+        0,
+        0
+      ],
+      "promedio": 0,
+      "tam": 8,
+      "tamanioBloques": 4
+    },
+    {
+      "muestras": [
+        0,
+        0
+      ],
+      "promedio": 0,
+      "tam": 16,
+      "tamanioBloques": 8
+    }
+  ],
+  "lenguaje": "go",
+  "nombre": "III3SequentialBlock"
+}
