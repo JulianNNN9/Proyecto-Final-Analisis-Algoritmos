@@ -29,8 +29,8 @@ def ejecutar_WinogradOriginal():
 
     for caso in casosPrueba:
         objeto = Caso.CasoMet(caso["tam"], [], 0,0)
-        matrizA = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
-        matrizB = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
+        matrizA = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
+        matrizB = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
 
         for i in range(caso["numMuestras"]):
             N = len(matrizA)
@@ -48,7 +48,7 @@ def ejecutar_WinogradOriginal():
         objeto.promedio = objeto.calcular_promedio()
         resultado.casos.append(objeto)
 
-    with open("G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Resultados\\python\\WinogradOriginalResultadoPython.json", "w") as archivo:
+    with open("Documentos\\Resultados\\python\\WinogradOriginalResultadoPython.json", "w") as archivo:
         json.dump(resultado.to_json(), archivo)
 
 def ejecutar_V3SequentialBlock():
@@ -64,8 +64,8 @@ def ejecutar_V3SequentialBlock():
 
     for caso in casosPrueba:
         objeto = Caso.CasoMet(caso["tam"], [], 0,caso["tamanioBloques"])
-        matrizA = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
-        matrizB = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
+        matrizA = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
+        matrizB = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
 
         for i in range(caso["numMuestras"]):
             N = len(matrizA)
@@ -83,7 +83,7 @@ def ejecutar_V3SequentialBlock():
         objeto.promedio = objeto.calcular_promedio()
         resultado.casos.append(objeto)
 
-    with open("G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Resultados\\python\\V3SequentialBlockResultadoPython.json", "w") as archivo:
+    with open("Documentos\\Resultados\\python\\V3SequentialBlockResultadoPython.json", "w") as archivo:
         json.dump(resultado.to_json(), archivo)
 
 def ejecutar_StrassenWinograd():
@@ -99,8 +99,8 @@ def ejecutar_StrassenWinograd():
 
     for caso in casosPrueba:
         objeto = Caso.CasoMet(caso["tam"], [], 0,0)
-        matrizA = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
-        matrizB = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
+        matrizA = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
+        matrizB = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
 
         for i in range(caso["numMuestras"]):
             N = len(matrizA)
@@ -118,7 +118,7 @@ def ejecutar_StrassenWinograd():
         objeto.promedio = objeto.calcular_promedio()
         resultado.casos.append(objeto)
 
-    with open("G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Resultados\\python\\StrassenWinogradResultadoPython.json", "w") as archivo:
+    with open("Documentos\\Resultados\\python\\StrassenWinogradResultadoPython.json", "w") as archivo:
         json.dump(resultado.to_json(), archivo)
 
 def ejecutar_StrassenNaiv():
@@ -134,8 +134,8 @@ def ejecutar_StrassenNaiv():
 
     for caso in casosPrueba:
         objeto = Caso.CasoMet(caso["tam"], [], 0,0)
-        matrizA = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
-        matrizB = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
+        matrizA = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
+        matrizB = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
 
         for i in range(caso["numMuestras"]):
             N = len(matrizA)
@@ -153,7 +153,7 @@ def ejecutar_StrassenNaiv():
         objeto.promedio = objeto.calcular_promedio()
         resultado.casos.append(objeto)
 
-    with open("G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Resultados\\python\\StrassenNaivResultadoPython.json", "w") as archivo:
+    with open("Documentos\\Resultados\\python\\StrassenNaivResultadoPython.json", "w") as archivo:
         json.dump(resultado.to_json(), archivo)
 
 def ejecutar_NaivOnArray():
@@ -169,8 +169,8 @@ def ejecutar_NaivOnArray():
 
     for caso in casosPrueba:
         objeto = Caso.CasoMet(caso["tam"], [], 0,0)
-        matrizA = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
-        matrizB = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
+        matrizA = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
+        matrizB = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
 
         for i in range(caso["numMuestras"]):
             N = len(matrizA)
@@ -188,7 +188,7 @@ def ejecutar_NaivOnArray():
         objeto.promedio = objeto.calcular_promedio()
         resultado.casos.append(objeto)
 
-    with open("G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Resultados\\python\\NaivOnArrayResultadoPython.json", "w") as archivo:
+    with open("Documentos\\Resultados\\python\\NaivOnArrayResultadoPython.json", "w") as archivo:
         json.dump(resultado.to_json(), archivo)
 
 def ejecutar_NaivLoopUnrollingTwo():
@@ -204,8 +204,8 @@ def ejecutar_NaivLoopUnrollingTwo():
 
     for caso in casosPrueba:
         objeto = Caso.CasoMet(caso["tam"], [], 0,0)
-        matrizA = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
-        matrizB = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
+        matrizA = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
+        matrizB = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
 
         for i in range(caso["numMuestras"]):
             N = len(matrizA)
@@ -223,7 +223,7 @@ def ejecutar_NaivLoopUnrollingTwo():
         objeto.promedio = objeto.calcular_promedio()
         resultado.casos.append(objeto)
 
-    with open("G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Resultados\\python\\NaivLoopUnrollingTwoResultadoPython.json", "w") as archivo:
+    with open("Documentos\\Resultados\\python\\NaivLoopUnrollingTwoResultadoPython.json", "w") as archivo:
         json.dump(resultado.to_json(), archivo)
 
 def ejecutar_NaivLoopUnrollingFour():
@@ -239,8 +239,8 @@ def ejecutar_NaivLoopUnrollingFour():
 
     for caso in casosPrueba:
         objeto = Caso.CasoMet(caso["tam"], [], 0,0)
-        matrizA = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
-        matrizB = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
+        matrizA = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
+        matrizB = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
 
         for i in range(caso["numMuestras"]):
             N = len(matrizA)
@@ -258,7 +258,7 @@ def ejecutar_NaivLoopUnrollingFour():
         objeto.promedio = objeto.calcular_promedio()
         resultado.casos.append(objeto)
 
-    with open("G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Resultados\\python\\NaivLoopUnrollingFourResultadoPython.json", "w") as archivo:
+    with open("Documentos\\Resultados\\python\\NaivLoopUnrollingFourResultadoPython.json", "w") as archivo:
         json.dump(resultado.to_json(), archivo)
 
 def ejecutar_IV3SequentialBlock():
@@ -274,8 +274,8 @@ def ejecutar_IV3SequentialBlock():
 
     for caso in casosPrueba:
         objeto = Caso.CasoMet(caso["tam"], [], 0,caso["tamanioBloques"])
-        matrizA = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
-        matrizB = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
+        matrizA = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
+        matrizB = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
 
         for i in range(caso["numMuestras"]):
             N = len(matrizA)
@@ -293,7 +293,7 @@ def ejecutar_IV3SequentialBlock():
         objeto.promedio = objeto.calcular_promedio()
         resultado.casos.append(objeto)
 
-    with open("G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Resultados\\python\\IV3SequentialBlockResultadoPython.json", "w") as archivo:
+    with open("Documentos\\Resultados\\python\\IV3SequentialBlockResultadoPython.json", "w") as archivo:
         json.dump(resultado.to_json(), archivo)
 
 def ejecutar_III4ParallelBlock():
@@ -309,8 +309,8 @@ def ejecutar_III4ParallelBlock():
 
     for caso in casosPrueba:
         objeto = Caso.CasoMet(caso["tam"], [], 0,caso["tamanioBloques"])
-        matrizA = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
-        matrizB = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
+        matrizA = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
+        matrizB = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
 
         for i in range(caso["numMuestras"]):
             N = len(matrizA)
@@ -328,24 +328,25 @@ def ejecutar_III4ParallelBlock():
         objeto.promedio = objeto.calcular_promedio()
         resultado.casos.append(objeto)
 
-    with open("G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Resultados\\python\\III4ParallelBlockResultadoPython.json", "w") as archivo:
+    with open("Documentos\\Resultados\\python\\III4ParallelBlockResultadoPython.json", "w") as archivo:
         json.dump(resultado.to_json(), archivo)
 
 def ejecutar_III3SequentialBlock():
     casosPrueba = ({"num": 1, "tam": 8, "numMuestras": 2, "tamanioBloques":4},
                 {"num": 2,  "tam": 16, "numMuestras": 2, "tamanioBloques":8},
-                {"num": 3,  "tam": 32, "numMuestras": 2, "tamanioBloques":16},
-                {"num": 4,  "tam": 64, "numMuestras": 1, "tamanioBloques":32},
-                {"num": 5,  "tam": 128, "numMuestras": 1, "tamanioBloques":64},
-                {"num": 6,  "tam": 256, "numMuestras": 1, "tamanioBloques":64},
-                {"num": 7,  "tam": 512, "numMuestras": 1, "tamanioBloques":128},
-                {"num": 8,  "tam": 1024, "numMuestras": 1,  "tamanioBloques":128})
+                #{"num": 3,  "tam": 32, "numMuestras": 2, "tamanioBloques":16},
+                #{"num": 4,  "tam": 64, "numMuestras": 1, "tamanioBloques":32},
+                #{"num": 5,  "tam": 128, "numMuestras": 1, "tamanioBloques":64},
+                #{"num": 6,  "tam": 256, "numMuestras": 1, "tamanioBloques":64},
+                #{"num": 7,  "tam": 512, "numMuestras": 1, "tamanioBloques":128},
+                #{"num": 8,  "tam": 1024, "numMuestras": 1,  "tamanioBloques":128}
+                )
     resultado = Resultado.ResultadoMet("III3SequentialBlock", [], "python")
 
     for caso in casosPrueba:
         objeto = Caso.CasoMet(caso["tam"], [], 0,caso["tamanioBloques"])
-        matrizA = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
-        matrizB = np.loadtxt('G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
+        matrizA = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizA.txt'.format(caso["num"]), dtype=int)
+        matrizB = np.loadtxt('Documentos\\Casos de prueba\\caso{}\\matrizB.txt'.format(caso["num"]), dtype=int)
 
         for i in range(caso["numMuestras"]):
             N = len(matrizA)
@@ -363,17 +364,17 @@ def ejecutar_III3SequentialBlock():
         objeto.promedio = objeto.calcular_promedio()
         resultado.casos.append(objeto)
 
-    with open("G:\\Visual Studio Code - workspace\\Proyect_Final_Analisis\\Documentos\\Resultados\\python\\III3SequentialBlockResultadoPython.json", "w") as archivo:
+    with open("Documentos\\Resultados\\python\\III3SequentialBlockResultadoPython.json", "w") as archivo:
         json.dump(resultado.to_json(), archivo)
 
 if __name__ == "__main__":
     ejecutar_III3SequentialBlock()
-    ejecutar_III4ParallelBlock()
-    ejecutar_IV3SequentialBlock()
-    ejecutar_NaivLoopUnrollingFour()
-    ejecutar_NaivLoopUnrollingTwo()
-    ejecutar_NaivOnArray()
-    ejecutar_StrassenNaiv()
-    ejecutar_StrassenWinograd()
-    ejecutar_V3SequentialBlock()
-    ejecutar_WinogradOriginal()
+    #ejecutar_III4ParallelBlock()
+    #ejecutar_IV3SequentialBlock()
+    #ejecutar_NaivLoopUnrollingFour()
+    #ejecutar_NaivLoopUnrollingTwo()
+    #ejecutar_NaivOnArray()
+    #ejecutar_StrassenNaiv()
+    #ejecutar_StrassenWinograd()
+    #ejecutar_V3SequentialBlock()
+    #ejecutar_WinogradOriginal()

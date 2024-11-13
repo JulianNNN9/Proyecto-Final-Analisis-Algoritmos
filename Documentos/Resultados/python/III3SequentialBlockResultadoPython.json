@@ -1,0 +1,1 @@
+{"nombre": "III3SequentialBlock", "casos": [{"tam": 8, "muestras": [0.0, 0.0009944438934326172], "promedio": 0.0004972219467163086, "tamanioBloques": 4}, {"tam": 16, "muestras": [0.006020069122314453, 0.004991292953491211], "promedio": 0.005505681037902832, "tamanioBloques": 8}], "lenguaje": "python"}
