@@ -2,7 +2,7 @@ package main
 
 import (
 	"PFAnalisisAlgoritmosGo/algoritmos" // Paquete de algoritmos
-	"PFAnalisisAlgoritmosGo/utilidades" // Paquete de utilidades
+	"PFAnalisisAlgoritmosGo/utilidades" // Paquete de utilidades(Caso y Resultado)
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -57,19 +57,381 @@ func ejecutar_StrassenWinograd() {
 }
 
 func ejecutar_StrassenNaiv() {
+	// Definimos los casos de prueba
+	casosPrueba := []map[string]interface{}{
+		{"num": 1, "tam": 8, "numMuestras": 2, "tamanioBloques": 0},
+		{"num": 2, "tam": 16, "numMuestras": 2, "tamanioBloques": 0},
+		{"num": 3, "tam": 32, "numMuestras": 2, "tamanioBloques": 0},
+		{"num": 4, "tam": 64, "numMuestras": 2, "tamanioBloques": 0},
+		{"num": 5, "tam": 128, "numMuestras": 1, "tamanioBloques": 0},
+		{"num": 6, "tam": 256, "numMuestras": 1, "tamanioBloques": 0},
+		{"num": 7, "tam": 512, "numMuestras": 1, "tamanioBloques": 0},
+		{"num": 8, "tam": 1024, "numMuestras": 1, "tamanioBloques": 0},
+	}
 
+	// Resultado
+	resultado := utilidades.ResultadoMet{
+		Nombre:   "StrassenNaiv",
+		Casos:    []utilidades.CasoMet{},
+		Lenguaje: "go",
+	}
+
+	// Procesar los casos de prueba
+	for _, caso := range casosPrueba {
+		objeto := utilidades.CasoMet{
+			Tam:      caso["tam"].(int),
+			Muestras: []float64{},
+			Promedio: 0,
+		}
+
+		// Leer las matrices desde archivos
+		matrizA := LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), objeto.Tam)
+		matrizB := LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), objeto.Tam)
+
+		// Convertir las matrices de [][]int a [][]float64
+		matrizAFloat := make([][]float64, len(matrizA))
+		for i := range matrizA {
+			matrizAFloat[i] = make([]float64, len(matrizA[i]))
+			for j := range matrizA[i] {
+				matrizAFloat[i][j] = float64(matrizA[i][j]) // Convertir de int a float64
+			}
+		}
+
+		matrizBFloat := make([][]float64, len(matrizB))
+		for i := range matrizB {
+			matrizBFloat[i] = make([]float64, len(matrizB[i]))
+			for j := range matrizB[i] {
+				matrizBFloat[i][j] = float64(matrizB[i][j]) // Convertir de int a float64
+			}
+		}
+
+		// Muestras de tiempo
+		for i := 0; i < int(caso["numMuestras"].(float64)); i++ {
+			N := len(matrizA)
+			P := len(matrizA[0])
+			M := len(matrizB[0])
+
+			Result := make([][]float64, N)
+			for i := range Result {
+				Result[i] = make([]float64, M) // Usar float64 en lugar de int
+			}
+
+			// Tiempo de ejecución
+			tiempoInicio := time.Now()
+			matrizResultado := algoritmos.StrassenNaiv(matrizAFloat, matrizBFloat, Result, N, P, M)
+			tiempoFinalizacion := time.Since(tiempoInicio).Seconds()
+
+			// Guardamos el tiempo de la muestra
+			objeto.Muestras = append(objeto.Muestras, tiempoFinalizacion)
+
+			// Usar la matriz resultado si es necesario
+			_ = matrizResultado
+		}
+
+		// Calculamos el promedio de las muestras
+		objeto.Promedio = objeto.CalcularPromedio()
+
+		// Añadimos el objeto al resultado
+		resultado.Casos = append(resultado.Casos, objeto)
+	}
+
+	// Guardamos los resultados en un archivo JSON
+	file, err := os.Create("Documentos/Resultados/go/StrassenNaivResultadoGo.json")
+	if err != nil {
+		fmt.Println("Error al crear el archivo:", err)
+		return
+	}
+	defer file.Close()
+
+	// Escribimos los resultados en el archivo
+	encoder := json.NewEncoder(file)
+	encoder.SetIndent("", "  ")
+	err = encoder.Encode(resultado.ToJSON())
+	if err != nil {
+		fmt.Println("Error al escribir en el archivo:", err)
+	}
 }
 
 func ejecutar_NaivOnArray() {
+	// Definimos los casos de prueba
+	casosPrueba := []map[string]interface{}{
+		{"num": 1, "tam": 8, "numMuestras": 3, "tamanioBloques": 0},
+		{"num": 2, "tam": 16, "numMuestras": 3, "tamanioBloques": 0},
+		{"num": 3, "tam": 32, "numMuestras": 3, "tamanioBloques": 0},
+		{"num": 4, "tam": 64, "numMuestras": 3, "tamanioBloques": 0},
+		{"num": 5, "tam": 128, "numMuestras": 3, "tamanioBloques": 0},
+		{"num": 6, "tam": 256, "numMuestras": 3, "tamanioBloques": 0},
+		{"num": 7, "tam": 512, "numMuestras": 3, "tamanioBloques": 0},
+		{"num": 8, "tam": 1024, "numMuestras": 2, "tamanioBloques": 0},
+	}
 
+	// Resultado
+	resultado := utilidades.ResultadoMet{
+		Nombre:   "NaivLoopUnrollingTwo",
+		Casos:    []utilidades.CasoMet{},
+		Lenguaje: "go",
+	}
+
+	// Procesar los casos de prueba
+	for _, caso := range casosPrueba {
+		objeto := utilidades.CasoMet{
+			Tam:      caso["tam"].(int),
+			Muestras: []float64{},
+			Promedio: 0,
+		}
+
+		// Leer las matrices desde archivos
+		matrizA := LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), objeto.Tam)
+		matrizB := LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), objeto.Tam)
+
+		// Convertir las matrices de [][]int a [][]float64
+		matrizAFloat := make([][]float64, len(matrizA))
+		for i := range matrizA {
+			matrizAFloat[i] = make([]float64, len(matrizA[i]))
+			for j := range matrizA[i] {
+				matrizAFloat[i][j] = float64(matrizA[i][j]) // Convertir de int a float64
+			}
+		}
+
+		matrizBFloat := make([][]float64, len(matrizB))
+		for i := range matrizB {
+			matrizBFloat[i] = make([]float64, len(matrizB[i]))
+			for j := range matrizB[i] {
+				matrizBFloat[i][j] = float64(matrizB[i][j]) // Convertir de int a float64
+			}
+		}
+		// Muestras de tiempo
+		for i := 0; i < int(caso["numMuestras"].(float64)); i++ {
+			N := len(matrizA)
+			P := len(matrizA[0])
+			M := len(matrizB[0])
+
+			// Inicializamos la matriz Resultado
+			Result := make([][]float64, N)
+			for i := range Result {
+				Result[i] = make([]float64, M)
+			}
+
+			// Tiempo de ejecución
+			tiempoInicio := time.Now()
+			matrizResultado := algoritmos.NaivOnArray(matrizAFloat, matrizBFloat, N, P, M)
+			tiempoFinalizacion := time.Since(tiempoInicio).Seconds()
+
+			// Guardamos el tiempo de la muestra
+			objeto.Muestras = append(objeto.Muestras, tiempoFinalizacion)
+
+			// Usar la matriz resultado si es necesario
+			_ = matrizResultado
+		}
+
+		// Calculamos el promedio de las muestras
+		objeto.Promedio = objeto.CalcularPromedio()
+
+		// Añadimos el objeto al resultado
+		resultado.Casos = append(resultado.Casos, objeto)
+	}
+
+	// Guardamos los resultados en un archivo JSON
+	file, err := os.Create("Documentos/Resultados/go/NaivOnArrayResultadoGo.json")
+	if err != nil {
+		fmt.Println("Error al crear el archivo:", err)
+		return
+	}
+	defer file.Close()
+
+	// Escribimos los resultados en el archivo
+	encoder := json.NewEncoder(file)
+	encoder.SetIndent("", "  ")
+	err = encoder.Encode(resultado.ToJSON())
+	if err != nil {
+		fmt.Println("Error al escribir en el archivo:", err)
+	}
 }
 
 func ejecutar_NaivLoopUnrollingTwo() {
+	// Casos de prueba
+	casosPrueba := []map[string]interface{}{
+		{"num": 1, "tam": 8, "numMuestras": 2, "tamanioBloques": 0},
+		{"num": 2, "tam": 16, "numMuestras": 2, "tamanioBloques": 0},
+		{"num": 3, "tam": 32, "numMuestras": 2, "tamanioBloques": 0},
+		{"num": 4, "tam": 64, "numMuestras": 1, "tamanioBloques": 0},
+		{"num": 5, "tam": 128, "numMuestras": 1, "tamanioBloques": 0},
+		{"num": 6, "tam": 256, "numMuestras": 1, "tamanioBloques": 0},
+		{"num": 7, "tam": 512, "numMuestras": 1, "tamanioBloques": 0},
+		{"num": 8, "tam": 1024, "numMuestras": 1, "tamanioBloques": 0},
+	}
 
+	// Resultado
+	resultado := utilidades.ResultadoMet{
+		Nombre:   "NaivLoopUnrollingTwo",
+		Casos:    []utilidades.CasoMet{},
+		Lenguaje: "go",
+	}
+
+	// Procesar los casos de prueba
+	for _, caso := range casosPrueba {
+		objeto := utilidades.CasoMet{
+			Tam:            caso["tam"].(int),
+			Muestras:       []float64{},
+			Promedio:       0,
+			TamanioBloques: caso["tamanioBloques"].(int),
+		}
+
+		// Leer las matrices desde archivos
+		matrizA := LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), objeto.Tam)
+		matrizB := LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), objeto.Tam)
+
+		// Convertir las matrices de [][]int a [][]float64
+		matrizAFloat := make([][]float64, len(matrizA))
+		for i := range matrizA {
+			matrizAFloat[i] = make([]float64, len(matrizA[i]))
+			for j := range matrizA[i] {
+				matrizAFloat[i][j] = float64(matrizA[i][j]) // Convertir de int a float64
+			}
+		}
+
+		matrizBFloat := make([][]float64, len(matrizB))
+		for i := range matrizB {
+			matrizBFloat[i] = make([]float64, len(matrizB[i]))
+			for j := range matrizB[i] {
+				matrizBFloat[i][j] = float64(matrizB[i][j]) // Convertir de int a float64
+			}
+		}
+
+		// Realizar el cálculo y medir el tiempo
+		for i := 0; i < caso["numMuestras"].(int); i++ {
+			N := len(matrizA)
+			P := len(matrizA[0])
+			M := len(matrizB[0])
+
+			// Inicializar la matriz de resultados
+			Result := make([][]float64, N)
+			for i := range Result {
+				Result[i] = make([]float64, M)
+			}
+
+			// Medir el tiempo de ejecución
+			tiempoInicio := time.Now()
+			// Llamar a la función NaivLoopUnrollingTwo para realizar la multiplicación
+			algoritmos.NaivLoopUnrollingTwo(matrizAFloat, matrizBFloat, N, P, M)
+			tiempoFinalizacion := time.Since(tiempoInicio)
+
+			// Agregar el tiempo de ejecución a las muestras
+			objeto.Muestras = append(objeto.Muestras, tiempoFinalizacion.Seconds())
+		}
+
+		// Calcular el promedio de las muestras
+		objeto.Promedio = objeto.CalcularPromedio()
+
+		// Agregar el objeto al resultado
+		resultado.Casos = append(resultado.Casos, objeto)
+	}
+
+	// Guardar el resultado en un archivo JSON
+	resultadoJSON, err := json.MarshalIndent(resultado.ToJSON(), "", "  ")
+	if err != nil {
+		fmt.Println("Error al generar JSON:", err)
+		return
+	}
+
+	// Guardar en archivo
+	err = ioutil.WriteFile("Documentos\\Resultados\\go\\NaivLoopUnrollingTwoResultadoGo.json", resultadoJSON, 0644)
+	if err != nil {
+		fmt.Println("Error al escribir el archivo:", err)
+	}
 }
 
 func ejecutar_NaivLoopUnrollingFour() {
+	// Casos de prueba
+	casosPrueba := []map[string]interface{}{
+		{"num": 1, "tam": 8, "numMuestras": 2, "tamanioBloques": 0},
+		{"num": 2, "tam": 16, "numMuestras": 2, "tamanioBloques": 0},
+		{"num": 3, "tam": 32, "numMuestras": 2, "tamanioBloques": 0},
+		{"num": 4, "tam": 64, "numMuestras": 1, "tamanioBloques": 0},
+		{"num": 5, "tam": 128, "numMuestras": 1, "tamanioBloques": 0},
+		{"num": 6, "tam": 256, "numMuestras": 1, "tamanioBloques": 0},
+		{"num": 7, "tam": 512, "numMuestras": 1, "tamanioBloques": 0},
+		{"num": 8, "tam": 1024, "numMuestras": 1, "tamanioBloques": 0},
+	}
 
+	// Resultado
+	resultado := utilidades.ResultadoMet{
+		Nombre:   "NaivLoopUnrollingFour",
+		Casos:    []utilidades.CasoMet{},
+		Lenguaje: "go",
+	}
+
+	// Procesar los casos de prueba
+	for _, caso := range casosPrueba {
+		objeto := utilidades.CasoMet{
+			Tam:            caso["tam"].(int),
+			Muestras:       []float64{},
+			Promedio:       0,
+			TamanioBloques: caso["tamanioBloques"].(int),
+		}
+
+		// Leer matrices desde los archivos correspondientes
+		matrizA := LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), objeto.Tam)
+		matrizB := LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), objeto.Tam)
+
+		// Convertir las matrices de [][]int a [][]float64
+		matrizAFloat := make([][]float64, len(matrizA))
+		for i := range matrizA {
+			matrizAFloat[i] = make([]float64, len(matrizA[i]))
+			for j := range matrizA[i] {
+				matrizAFloat[i][j] = float64(matrizA[i][j]) // Convertir de int a float64
+			}
+		}
+
+		matrizBFloat := make([][]float64, len(matrizB))
+		for i := range matrizB {
+			matrizBFloat[i] = make([]float64, len(matrizB[i]))
+			for j := range matrizB[i] {
+				matrizBFloat[i][j] = float64(matrizB[i][j]) // Convertir de int a float64
+			}
+		}
+
+		// Realizar el cálculo y medir el tiempo
+		for i := 0; i < caso["numMuestras"].(int); i++ {
+			N := len(matrizAFloat)
+			P := len(matrizAFloat[0])
+			M := len(matrizBFloat[0])
+
+			// Inicializar la matriz de resultados
+			Result := make([][]float64, N)
+			for i := range Result {
+				Result[i] = make([]float64, M)
+			}
+
+			// Medir el tiempo de ejecución
+			tiempoInicio := time.Now()
+			// Llamar a la función NaivLoopUnrollingFour para realizar la multiplicación
+			algoritmos.NaivLoopUnrollingFour(matrizAFloat, matrizBFloat, N, P, M)
+			tiempoFinalizacion := time.Since(tiempoInicio)
+
+			// Agregar el tiempo de ejecución a las muestras
+			objeto.Muestras = append(objeto.Muestras, tiempoFinalizacion.Seconds())
+		}
+
+		// Calcular el promedio de las muestras
+		objeto.Promedio = objeto.CalcularPromedio()
+
+		// Agregar el objeto al resultado
+		resultado.Casos = append(resultado.Casos, objeto)
+	}
+
+	// Guardar el resultado en un archivo JSON
+	resultadoJSON, err := json.MarshalIndent(resultado.ToJSON(), "", "  ")
+	if err != nil {
+		fmt.Println("Error al generar JSON:", err)
+		return
+	}
+
+	// Guardar en archivo
+	err = ioutil.WriteFile("Documentos\\Resultados\\go\\NaivLoopUnrollingFourResultadoGo.json", resultadoJSON, 0644)
+	if err != nil {
+		fmt.Println("Error al escribir el archivo:", err)
+	}
 }
 
 func ejecutar_IV3SequentialBlock() {
