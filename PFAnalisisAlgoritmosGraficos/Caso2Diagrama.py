@@ -5,7 +5,13 @@ import matplotlib.pyplot as plt
 def obtener_promedio_primero(archivo):
     with open(archivo, "r") as file:
         data = json.load(file)
-        return data["casos"][1]["promedio"]
+        # Verificar si 'casos' está en el JSON y contiene al menos un elemento
+        if "casos" in data and len(data["casos"]) > 0:
+            return data["casos"][0]["promedio"]
+        else:
+            # Manejar el caso en que 'casos' no exista o esté vacío
+            print(f"Advertencia: el archivo {archivo} no contiene la clave 'casos' o está vacío.")
+            return 0  # O algún otro valor predeterminado
 
 # Rutas de los archivos JSON para Go y Python
 ruta_go = "Documentos\\Resultados\\go\\"

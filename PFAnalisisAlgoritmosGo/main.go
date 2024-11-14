@@ -282,7 +282,7 @@ func ejecutar_StrassenWinograd() {
 	}
 
 	// Guardar el resultado en un archivo JSON
-	resultadoJSON, err := json.MarshalIndent(resultado, "", "  ")
+	resultadoJSON, err := json.MarshalIndent(resultado.ToJSON(), "", "  ")
 	if err != nil {
 		fmt.Println("Error al generar JSON:", err)
 		return
@@ -324,8 +324,8 @@ func ejecutar_StrassenNaiv() {
 		}
 
 		// Leer las matrices desde archivos
-		matrizA := LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), objeto.Tam)
-		matrizB := LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), objeto.Tam)
+		matrizA := LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), objeto.Tam)
+		matrizB := LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), objeto.Tam)
 
 		// Convertir las matrices de [][]int a [][]float64
 		matrizAFloat := make([][]float64, len(matrizA))
@@ -345,7 +345,7 @@ func ejecutar_StrassenNaiv() {
 		}
 
 		// Muestras de tiempo
-		for i := 0; i < int(caso["numMuestras"].(float64)); i++ {
+		for i := 0; i < int(caso["numMuestras"].(int)); i++ {
 			N := len(matrizA)
 			P := len(matrizA[0])
 			M := len(matrizB[0])
@@ -420,8 +420,8 @@ func ejecutar_NaivOnArray() {
 		}
 
 		// Leer las matrices desde archivos
-		matrizA := LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), objeto.Tam)
-		matrizB := LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), objeto.Tam)
+		matrizA := LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), objeto.Tam)
+		matrizB := LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), objeto.Tam)
 
 		// Convertir las matrices de [][]int a [][]float64
 		matrizAFloat := make([][]float64, len(matrizA))
@@ -440,7 +440,7 @@ func ejecutar_NaivOnArray() {
 			}
 		}
 		// Muestras de tiempo
-		for i := 0; i < int(caso["numMuestras"].(float64)); i++ {
+		for i := 0; i < int(caso["numMuestras"].(int)); i++ {
 			N := len(matrizA)
 			P := len(matrizA[0])
 			M := len(matrizB[0])
@@ -448,6 +448,7 @@ func ejecutar_NaivOnArray() {
 			// Inicializamos la matriz Resultado
 			Result := make([][]float64, N)
 			for i := range Result {
+
 				Result[i] = make([]float64, M)
 			}
 
@@ -517,8 +518,8 @@ func ejecutar_NaivLoopUnrollingTwo() {
 		}
 
 		// Leer las matrices desde archivos
-		matrizA := LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), objeto.Tam)
-		matrizB := LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), objeto.Tam)
+		matrizA := LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), objeto.Tam)
+		matrizB := LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), objeto.Tam)
 
 		// Convertir las matrices de [][]int a [][]float64
 		matrizAFloat := make([][]float64, len(matrizA))
@@ -610,8 +611,8 @@ func ejecutar_NaivLoopUnrollingFour() {
 		}
 
 		// Leer matrices desde los archivos correspondientes
-		matrizA := LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), objeto.Tam)
-		matrizB := LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), objeto.Tam)
+		matrizA := LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), objeto.Tam)
+		matrizB := LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), objeto.Tam)
 
 		// Convertir las matrices de [][]int a [][]float64
 		matrizAFloat := make([][]float64, len(matrizA))
@@ -667,7 +668,7 @@ func ejecutar_NaivLoopUnrollingFour() {
 	}
 
 	// Guardar en archivo
-	err = ioutil.WriteFile("Documentos\\Resultados\\go\\NaivLoopUnrollingFourResultadoGo.json", resultadoJSON, 0644)
+	err = ioutil.WriteFile("..\\Documentos\\Resultados\\go\\NaivLoopUnrollingFourResultadoGo.json", resultadoJSON, 0644)
 	if err != nil {
 		fmt.Println("Error al escribir el archivo:", err)
 	}
@@ -786,8 +787,8 @@ func ejecutar_III4ParallelBlock() {
 		}
 
 		// Leer matrices desde los archivos correspondientes
-		matrizA = LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), N)
-		matrizB = LeerMatriz(fmt.Sprintf("Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), N)
+		matrizA = LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizA.txt", caso["num"].(int)), N)
+		matrizB = LeerMatriz(fmt.Sprintf("..\\Documentos\\Casos de prueba\\caso%d\\matrizB.txt", caso["num"].(int)), N)
 
 		// Realizar el cálculo y medir el tiempo
 		for i := 0; i < caso["numMuestras"].(int); i++ {
@@ -826,12 +827,12 @@ func ejecutar_III3SequentialBlock() {
 	casosPrueba := []map[string]interface{}{
 		{"num": 1, "tam": 8, "numMuestras": 2, "tamanioBloques": 4},
 		{"num": 2, "tam": 16, "numMuestras": 2, "tamanioBloques": 8},
-		//{"num": 3, "tam": 32, "numMuestras": 2, "tamanioBloques": 16},
-		//{"num": 4, "tam": 64, "numMuestras": 1, "tamanioBloques": 32},
-		//{"num": 5, "tam": 128, "numMuestras": 1, "tamanioBloques": 64},
-		//{"num": 6, "tam": 256, "numMuestras": 1, "tamanioBloques": 64},
-		//{"num": 7, "tam": 512, "numMuestras": 1, "tamanioBloques": 128},
-		//{"num": 8, "tam": 1024, "numMuestras": 1, "tamanioBloques": 128},
+		{"num": 3, "tam": 32, "numMuestras": 2, "tamanioBloques": 16},
+		{"num": 4, "tam": 64, "numMuestras": 1, "tamanioBloques": 32},
+		{"num": 5, "tam": 128, "numMuestras": 1, "tamanioBloques": 64},
+		{"num": 6, "tam": 256, "numMuestras": 1, "tamanioBloques": 64},
+		{"num": 7, "tam": 512, "numMuestras": 1, "tamanioBloques": 128},
+		{"num": 8, "tam": 1024, "numMuestras": 1, "tamanioBloques": 128},
 	}
 
 	// Resultado

@@ -17,6 +17,55 @@
       "promedio": 0,
       "tam": 16,
       "tamanioBloques": 8
+    },
+    {
+      "muestras": [
+        0,
+        0
+      ],
+      "promedio": 0,
+      "tam": 32,
+      "tamanioBloques": 16
+    },
+    {
+      "muestras": [
+        0.0006152
+      ],
+      "promedio": 0.0006152,
+      "tam": 64,
+      "tamanioBloques": 32
+    },
+    {
+      "muestras": [
+        0.0046157
+      ],
+      "promedio": 0.0046157,
+      "tam": 128,
+      "tamanioBloques": 64
+    },
+    {
+      "muestras": [
+        0.0373751
+      ],
+      "promedio": 0.0373751,
+      "tam": 256,
+      "tamanioBloques": 64
+    },
+    {
+      "muestras": [
+        0.5076287
+      ],
+      "promedio": 0.5076287,
+      "tam": 512,
+      "tamanioBloques": 128
+    },
+    {
+      "muestras": [
+        4.0810825
+      ],
+      "promedio": 4.0810825,
+      "tam": 1024,
+      "tamanioBloques": 128
     }
   ],
   "lenguaje": "go",

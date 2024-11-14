@@ -1,1 +1,73 @@
-{"nombre": "NaivLoopUnrollingTwo", "casos": [{"tam": 8, "muestras": [0.0020003318786621094, 0.002154827117919922], "promedio": 0.0020775794982910156}, {"tam": 16, "muestras": [0.015000343322753906, 0.0149993896484375], "promedio": 0.014999866485595703}, {"tam": 32, "muestras": [0.11502957344055176, 0.10309195518493652], "promedio": 0.10906076431274414}, {"tam": 64, "muestras": [0.8582417964935303], "promedio": 0.8582417964935303}, {"tam": 128, "muestras": [6.698091268539429], "promedio": 6.698091268539429}, {"tam": 256, "muestras": [51.36982727050781], "promedio": 51.36982727050781}, {"tam": 512, "muestras": [421.5655162334442], "promedio": 421.5655162334442}, {"tam": 1024, "muestras": [3425.376762151718], "promedio": 3425.376762151718}], "lenguaje": "python"}
+{
+  "casos": [
+    {
+      "muestras": [
+        0,
+        0
+      ],
+      "promedio": 0,
+      "tam": 8,
+      "tamanioBloques": 0
+    },
+    {
+      "muestras": [
+        0,
+        0
+      ],
+      "promedio": 0,
+      "tam": 16,
+      "tamanioBloques": 0
+    },
+    {
+      "muestras": [
+        0,
+        0
+      ],
+      "promedio": 0,
+      "tam": 32,
+      "tamanioBloques": 0
+    },
+    {
+      "muestras": [
+        0.0006016
+      ],
+      "promedio": 0.0006016,
+      "tam": 64,
+      "tamanioBloques": 0
+    },
+    {
+      "muestras": [
+        0.0015532
+      ],
+      "promedio": 0.0015532,
+      "tam": 128,
+      "tamanioBloques": 0
+    },
+    {
+      "muestras": [
+        0.0325761
+      ],
+      "promedio": 0.0325761,
+      "tam": 256,
+      "tamanioBloques": 0
+    },
+    {
+      "muestras": [
+        0.2749511
+      ],
+      "promedio": 0.2749511,
+      "tam": 512,
+      "tamanioBloques": 0
+    },
+    {
+      "muestras": [
+        3.15345
+      ],
+      "promedio": 3.15345,
+      "tam": 1024,
+      "tamanioBloques": 0
+    }
+  ],
+  "lenguaje": "go",
+  "nombre": "NaivLoopUnrollingTwo"
+}
