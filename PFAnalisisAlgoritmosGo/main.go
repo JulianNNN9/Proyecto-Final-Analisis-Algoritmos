@@ -902,10 +902,10 @@ func ejecutar_III3SequentialBlock() {
 }
 
 func main() {
-	ejecutar_III3SequentialBlock()
+	ejecutar_III3SequentialBlock() //Revisar
 	ejecutar_III4ParallelBlock()
 	ejecutar_IV3SequentialBlock()
-	ejecutar_NaivLoopUnrollingFour()
+	ejecutar_NaivLoopUnrollingFour() //Revisar
 	ejecutar_NaivLoopUnrollingTwo()
 	ejecutar_NaivOnArray()
 	ejecutar_StrassenNaiv()

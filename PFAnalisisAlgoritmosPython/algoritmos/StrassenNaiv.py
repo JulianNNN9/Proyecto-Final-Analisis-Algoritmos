@@ -31,7 +31,7 @@ def StrassenNaiv(A, B, Result, N, P, M):
         for j in range(P):
             nuevaMatrizB[i][j] = B[i][j]
 
-    matrizResultadoAuxiliar = StrassenNaivStep(nuevaMatrizA, nuevaMatrizB, matrizResultadoAuxiliar, nuevoTamanio, m)
+    matrizResultadoAuxiliar = StrassenNaivStep.StrassenNaivStep(nuevaMatrizA, nuevaMatrizB, matrizResultadoAuxiliar, nuevoTamanio, m)
 
     for i in range(N):
         for j in range(P):

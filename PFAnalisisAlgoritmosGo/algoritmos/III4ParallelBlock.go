@@ -41,7 +41,7 @@ func III4ParallelBlock(A, B [][]int, bsize int) [][]int {
 		mutex.Unlock()
 	}
 
-	// Crear gorutinas para cada bloque
+	// Crear go rutinas para cada bloque
 	for i1 := 0; i1 < size; i1 += bsize {
 		for j1 := 0; j1 < size; j1 += bsize {
 			for k1 := 0; k1 < size; k1 += bsize {

@@ -11,10 +11,10 @@
     },
     {
       "muestras": [
-        0,
+        0.0009979,
         0
       ],
-      "promedio": 0,
+      "promedio": 0.00049895,
       "tam": 16,
       "tamanioBloques": 0
     },
@@ -30,43 +30,43 @@
     {
       "muestras": [
         0,
-        0.0005106
+        0.0010323
       ],
-      "promedio": 0.0002553,
+      "promedio": 0.00051615,
       "tam": 64,
       "tamanioBloques": 0
     },
     {
       "muestras": [
-        0.0030057,
-        0.002534
+        0.0019923,
+        0.0039878
       ],
-      "promedio": 0.00276985,
+      "promedio": 0.0029900499999999997,
       "tam": 128,
       "tamanioBloques": 0
     },
     {
       "muestras": [
-        0.0356439,
-        0.0367953
+        0.0425766,
+        0.0474462
       ],
-      "promedio": 0.036219600000000005,
+      "promedio": 0.0450114,
       "tam": 256,
       "tamanioBloques": 0
     },
     {
       "muestras": [
-        0.3123596
+        0.3717464
       ],
-      "promedio": 0.3123596,
+      "promedio": 0.3717464,
       "tam": 512,
       "tamanioBloques": 0
     },
     {
       "muestras": [
-        4.4338709
+        5.569218
       ],
-      "promedio": 4.4338709,
+      "promedio": 5.569218,
       "tam": 1024,
       "tamanioBloques": 0
     }

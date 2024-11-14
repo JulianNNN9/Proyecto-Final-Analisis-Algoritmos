@@ -29,41 +29,41 @@
     },
     {
       "muestras": [
-        0.0006016
+        0.0009935
       ],
-      "promedio": 0.0006016,
+      "promedio": 0.0009935,
       "tam": 64,
       "tamanioBloques": 0
     },
     {
       "muestras": [
-        0.0015532
+        0.0029914
       ],
-      "promedio": 0.0015532,
+      "promedio": 0.0029914,
       "tam": 128,
       "tamanioBloques": 0
     },
     {
       "muestras": [
-        0.0325761
+        0.0379919
       ],
-      "promedio": 0.0325761,
+      "promedio": 0.0379919,
       "tam": 256,
       "tamanioBloques": 0
     },
     {
       "muestras": [
-        0.2749511
+        0.324987
       ],
-      "promedio": 0.2749511,
+      "promedio": 0.324987,
       "tam": 512,
       "tamanioBloques": 0
     },
     {
       "muestras": [
-        3.15345
+        7.0068636
       ],
-      "promedio": 3.15345,
+      "promedio": 7.0068636,
       "tam": 1024,
       "tamanioBloques": 0
     }

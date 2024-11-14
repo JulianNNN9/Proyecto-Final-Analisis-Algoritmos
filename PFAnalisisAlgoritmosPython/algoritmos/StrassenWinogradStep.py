@@ -145,6 +145,6 @@ def StrassenWinogradStep(A, B, Result, cantidadFilasMatrices, m):
         
     else:
         # Usar algoritmo naiv
-        Result = NaivStandard(A, B, Result, len(A), len(B), len(Result))
+        Result = NaivStandard.NaivStandard(A, B, Result, len(A), len(B), len(Result))
     
     return Result

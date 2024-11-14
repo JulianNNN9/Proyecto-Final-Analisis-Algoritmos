@@ -2,19 +2,19 @@
   "casos": [
     {
       "muestras": [
-        0.0000956,
-        0.0000299
+        0,
+        0
       ],
-      "promedio": 0.00006275000000000001,
+      "promedio": 0,
       "tam": 8,
       "tamanioBloques": 4
     },
     {
       "muestras": [
-        0.0003071,
+        0,
         0
       ],
-      "promedio": 0.00015355,
+      "promedio": 0,
       "tam": 16,
       "tamanioBloques": 8
     },
@@ -29,41 +29,41 @@
     },
     {
       "muestras": [
-        0
+        0.000996
       ],
-      "promedio": 0,
+      "promedio": 0.000996,
       "tam": 64,
       "tamanioBloques": 32
     },
     {
       "muestras": [
-        0.0019276
+        0.0029969
       ],
-      "promedio": 0.0019276,
+      "promedio": 0.0029969,
       "tam": 128,
       "tamanioBloques": 64
     },
     {
       "muestras": [
-        0.0208965
+        0.0199508
       ],
-      "promedio": 0.0208965,
+      "promedio": 0.0199508,
       "tam": 256,
       "tamanioBloques": 64
     },
     {
       "muestras": [
-        0.1598128
+        0.2288529
       ],
-      "promedio": 0.1598128,
+      "promedio": 0.2288529,
       "tam": 512,
       "tamanioBloques": 128
     },
     {
       "muestras": [
-        2.2617015
+        2.458934
       ],
-      "promedio": 2.2617015,
+      "promedio": 2.458934,
       "tam": 1024,
       "tamanioBloques": 128
     }

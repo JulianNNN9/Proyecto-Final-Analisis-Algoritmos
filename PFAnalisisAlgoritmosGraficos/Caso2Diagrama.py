@@ -1,17 +1,42 @@
 import json
 import matplotlib.pyplot as plt
 
+import json
+
 # Función para leer un archivo JSON y devolver el promedio del primer caso
 def obtener_promedio_primero(archivo):
-    with open(archivo, "r") as file:
-        data = json.load(file)
-        # Verificar si 'casos' está en el JSON y contiene al menos un elemento
-        if "casos" in data and len(data["casos"]) > 0:
-            return data["casos"][0]["promedio"]
-        else:
-            # Manejar el caso en que 'casos' no exista o esté vacío
-            print(f"Advertencia: el archivo {archivo} no contiene la clave 'casos' o está vacío.")
-            return 0  # O algún otro valor predeterminado
+    try:
+        # Intentar abrir el archivo JSON
+        with open(archivo, "r") as file:
+            try:
+                # Intentar cargar el contenido del archivo como JSON
+                data = json.load(file)
+            except json.JSONDecodeError as e:
+                # Manejar errores al decodificar el archivo JSON
+                print(f"Error al leer el archivo JSON: {e}")
+                return 0  # O algún otro valor predeterminado
+            
+            # Verificar si 'casos' está en el JSON y contiene al menos un elemento
+            if "casos" in data and len(data["casos"]) > 0:
+                return data["casos"][1]["promedio"]
+            else:
+                # Manejar el caso en que 'casos' no exista o esté vacío
+                print(f"Advertencia: el archivo {archivo} no contiene la clave 'casos' o está vacío.")
+                return 0  # O algún otro valor predeterminado
+
+    except FileNotFoundError as e:
+        # Manejar el error en caso de que el archivo no exista
+        print(f"Error: El archivo {archivo} no se encuentra: {e}")
+        return 0  # O algún otro valor predeterminado
+    except PermissionError as e:
+        # Manejar el error si no se tienen permisos para acceder al archivo
+        print(f"Error: Permiso denegado para abrir el archivo {archivo}: {e}")
+        return 0  # O algún otro valor predeterminado
+    except Exception as e:
+        # Manejar cualquier otro error inesperado
+        print(f"Ocurrió un error inesperado: {e}")
+        return 0  # O algún otro valor predeterminado
+
 
 # Rutas de los archivos JSON para Go y Python
 ruta_go = "Documentos\\Resultados\\go\\"

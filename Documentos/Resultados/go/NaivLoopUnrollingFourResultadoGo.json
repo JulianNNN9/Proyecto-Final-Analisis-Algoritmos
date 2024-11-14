@@ -37,33 +37,33 @@
     },
     {
       "muestras": [
-        0.0022252
+        0.0019944
       ],
-      "promedio": 0.0022252,
+      "promedio": 0.0019944,
       "tam": 128,
       "tamanioBloques": 0
     },
     {
       "muestras": [
-        0.0256948
+        0.0329463
       ],
-      "promedio": 0.0256948,
+      "promedio": 0.0329463,
       "tam": 256,
       "tamanioBloques": 0
     },
     {
       "muestras": [
-        0.2507311
+        0.2767309
       ],
-      "promedio": 0.2507311,
+      "promedio": 0.2767309,
       "tam": 512,
       "tamanioBloques": 0
     },
     {
       "muestras": [
-        3.9270461
+        3.5953284
       ],
-      "promedio": 3.9270461,
+      "promedio": 3.5953284,
       "tam": 1024,
       "tamanioBloques": 0
     }

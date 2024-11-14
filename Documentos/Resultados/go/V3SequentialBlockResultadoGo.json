@@ -29,41 +29,41 @@
     },
     {
       "muestras": [
-        0.0005432
+        0
       ],
-      "promedio": 0.0005432,
+      "promedio": 0,
       "tam": 64,
       "tamanioBloques": 32
     },
     {
       "muestras": [
-        0.0049473
+        0.0070138
       ],
-      "promedio": 0.0049473,
+      "promedio": 0.0070138,
       "tam": 128,
       "tamanioBloques": 64
     },
     {
       "muestras": [
-        0.0445331
+        0.0513918
       ],
-      "promedio": 0.0445331,
+      "promedio": 0.0513918,
       "tam": 256,
       "tamanioBloques": 64
     },
     {
       "muestras": [
-        0.5701391
+        0.6796609
       ],
-      "promedio": 0.5701391,
+      "promedio": 0.6796609,
       "tam": 512,
       "tamanioBloques": 128
     },
     {
       "muestras": [
-        4.5579938
+        5.5960758
       ],
-      "promedio": 4.5579938,
+      "promedio": 5.5960758,
       "tam": 1024,
       "tamanioBloques": 128
     }

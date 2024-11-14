@@ -133,6 +133,6 @@ def StrassenNaivStep(A, B, Result, cantidadFilasMatrices, m):
         
     else:
        # matrizResultado = naiv_standard(matrizA, matrizB, matrizResultado, len(matrizA), len(matrizB), len(matrizResultado))
-        Result = NaivStandard(A, B, Result, cantidadFilasMatrices, cantidadFilasMatrices, cantidadFilasMatrices)
+        Result = NaivStandard.NaivStandard(A, B, Result, cantidadFilasMatrices, cantidadFilasMatrices, cantidadFilasMatrices)
     
     return Result
